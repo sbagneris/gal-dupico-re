@@ -1,0 +1,29 @@
+# First-look read of an unknown GAL16V8 (AdSCSI U3/U4/U5), placed straight in the dupico ZIF42 (no PAL POD).
+# Placement and jumper as duptest_direct.toml: top-aligned, pin 1 at ZIF 1, pins 11-20 -> ZIF 33-42,
+# dupont jumper header pin 10 -> pin 21 (GND). Read-only: dpdumper never writes a GAL.
+#
+# Inputs = the dedicated input pins 1-9 and 11; data = I/O pins 12-19. Read with --check_hiz.
+# Use it to classify pins, not as the final dump:
+# - an I/O pin used as an INPUT shows up as Z (it follows the dupico's pull). The Hi-Z pass pulls all data pins
+#   high, so outputs that depend on that input change between passes and are also reported as Z. Once the
+#   inputs among 13-18 are known, write a per-chip TOML with them moved to `address`.
+# - in registered mode pin 1 is CLK and pin 11 is /OE. Pin 1 is address bit 0, so the registers clock on every
+#   other entry: if outputs look history-dependent, the chip is registered and needs the state explorer instead.
+name = "GAL16V8 generic (direct)"
+type = "ROM"
+
+[pinout]
+ZIF_map = [1, 2, 3, 4, 5, 6, 7, 8, 9, 21, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+address = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+data = [12, 13, 14, 15, 16, 17, 18, 19]
+H_enable = []
+L_enable = []
+H_write = []
+L_write = []
+
+[adapter]
+hi_pins = []
+notes = "No pod: 16V8 top-aligned in the ZIF42 (pin 1 at ZIF 1), jumper header pin 10 -> pin 21 for GND."
+
+[requirements]
+hardware = 3
