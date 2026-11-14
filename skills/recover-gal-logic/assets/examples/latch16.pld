@@ -1,0 +1,22 @@
+GAL16V8
+LATCH16
+
+S    R    D    G    A    B    EN   NC   NC   GND
+NC   NC   NC   NC   NC   Y    DL   Q    SEL  VCC
+
+Q.T = S + Q * /R
+Q.E = VCC
+
+DL.T = D * G + DL * /G + D * DL
+DL.E = VCC
+
+SEL.T = A * /B
+SEL.E = EN
+
+Y.T = A * /B + /A * B
+Y.E = VCC
+
+DESCRIPTION
+
+galre selftest example (complex mode): set/reset latch Q, transparent D latch DL (hazard-free cover),
+decode SEL with an output enable, XOR Y. Pins 8, 9, 11-15 unconnected.

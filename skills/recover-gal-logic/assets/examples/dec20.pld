@@ -1,0 +1,25 @@
+GAL20V8
+DEC20
+
+A    B    C    S    R    EN   NC   NC   NC   NC   NC   GND
+NC   NC   NC   Q    Y0   Y1   Y2   Y3   NC   OUT  NC   VCC
+
+Q.T = S + Q * /R
+Q.E = VCC
+
+/Y0.T = /A * /B * C
+Y0.E = VCC
+/Y1.T = A * /B * C
+Y1.E = VCC
+/Y2.T = /A * B * C
+Y2.E = VCC
+/Y3.T = A * B * C * Q
+Y3.E = VCC
+
+OUT.T = A * B
+OUT.E = EN
+
+DESCRIPTION
+
+galre selftest example (GAL20V8 complex mode): active-low decoder, Y3 gated by the set/reset latch Q, OUT with an
+output enable. Pins 7-11, 13-15, 21, 23 unconnected.

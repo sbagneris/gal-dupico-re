@@ -1,0 +1,19 @@
+GAL16V8
+FSM16
+
+CLK  EN   RST  CLR  OEN  NC   NC   NC   NC   GND
+OE   NC   NC   DRV  BUSY NC   Q1   Q0   NC   VCC
+
+Q0.R = /RST * EN * /Q0 + /RST * /EN * Q0
+Q1.R = /RST * EN * Q0 * /Q1 + /RST * EN * /Q0 * Q1 + /RST * /EN * Q1
+
+BUSY.T = Q0 * Q1 + BUSY * /CLR
+BUSY.E = VCC
+
+DRV.T = Q0 * /Q1
+DRV.E = OEN
+
+DESCRIPTION
+
+galre selftest example (registered mode): 2-bit counter with enable and synchronous reset, a latch BUSY set at
+count 3 and cleared by CLR, DRV with an output enable. Pins 6-9, 12, 13, 16, 19 unconnected.

@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: good-copy-erase-original
+expected_outcome: |
+  The copy is good: replaying the original's record on it passes. A good run says so, but advises keeping the
+  original intact (it is the only true reference; the record held pins 5-9 at 0, its clock moves were never
+  re-clocked, and the equations are only equivalent), recommends an in-circuit test, and when the JED is shared
+  says what it was verified against.
+context:
+  scaffold_script: place-files.sh

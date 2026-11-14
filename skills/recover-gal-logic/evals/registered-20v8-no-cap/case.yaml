@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: registered-20v8-no-cap
+expected_outcome: |
+  The chip double-clocks without its decoupling capacitor (non-repeatable clock moves). A good run identifies that,
+  tells the user to fit 100 nF across pins 24 and 12, rechecks the clock moves (majority) rather than fitting a noisy
+  record, treats pins 15 and 22 as outputs although the board leaves them unconnected (the chip drives them), and
+  produces a JED that matches the chip.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,17 @@
+GAL20V8
+FSM20
+
+CLK  DIN  EN   OEN  NC   NC   NC   NC   NC   NC   NC   GND
+OE   NC   NC   PAR  S2   S1   S0   NC   NC   NC   NC   VCC
+
+S0.R = DIN * EN + S0 * /EN
+S1.R = S0 * EN + S1 * /EN
+S2.R = S1 * EN + S2 * /EN
+
+PAR.T = S0 * /S1 * /S2 + /S0 * S1 * /S2 + /S0 * /S1 * S2 + S0 * S1 * S2
+PAR.E = OEN
+
+DESCRIPTION
+
+galre selftest example (GAL20V8 registered mode): 3-bit shift register with enable, parity output with an output
+enable. Pins 5-11, 14, 15, 20-23 unconnected.

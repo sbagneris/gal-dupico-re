@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: latch-16v8-arcade
+expected_outcome: |
+  A replacement JED that behaves like the chip on every recorded move (single-input-change exploration, not a
+  truth-table dump, which this latch-based chip makes misleading), pins held only where the board is unconnected,
+  verified against the recording, with programming advice (security fuse off) and the equivalence caveat.
+context:
+  scaffold_script: place-files.sh

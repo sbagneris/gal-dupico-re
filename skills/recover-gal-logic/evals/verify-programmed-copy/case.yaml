@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: verify-programmed-copy
+expected_outcome: |
+  The copy is faulty (its latch on pin 14 drops where the original holds). A good run replays the original's record
+  on the copy, reports FAIL with the mismatching moves, advises against installing it, and advises keeping the
+  original intact rather than erasing it.
+context:
+  scaffold_script: place-files.sh

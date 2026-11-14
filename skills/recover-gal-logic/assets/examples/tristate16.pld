@@ -1,0 +1,20 @@
+GAL16V8
+TRIST16
+
+nCS  nRD  A    B    NC   NC   NC   NC   NC   GND
+NC   NC   NC   NC   DBEN NC   NC   Q    ROMOE VCC
+
+DBEN.T = /nRD
+DBEN.E = /nCS
+
+/ROMOE.T = /nCS * /nRD * /A
+ROMOE.E = VCC
+
+Q.T = /nCS * B + Q * nCS + Q * B
+Q.E = VCC
+
+DESCRIPTION
+
+galre selftest example (complex mode): DBEN is tri-stated while nCS is high and equals /nRD otherwise, so a fit
+could compute ROMOE from DBEN's feedback; it must not, because DBEN floats exactly when ROMOE ignores it. Q is a
+latch. Pins 5-9, 11-14, 16, 17 unconnected.
