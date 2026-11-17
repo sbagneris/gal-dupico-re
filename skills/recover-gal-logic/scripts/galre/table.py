@@ -32,6 +32,10 @@ def read_table(path, overrides=None):
                     mode='complex' if 'no CLK' in head else 'registered')
         pu = re.search(r"power-up states \{([^}]*)\}", head)
         meta['power_up'] = re.findall(r"'([01Z?]+)'", pu.group(1)) if pu else []
+        # v0 tables have no allow_z list: a state pin the original's own record shows floating (Z) may float
+        order = sorted(meta['state'], reverse=True)
+        meta['allow_z'] = sorted({order[i] for s, _, _, n in rows for st in (s, n) for i, c in enumerate(st) if c == 'Z'},
+                                 reverse=True)
     for k, v in (overrides or {}).items():
         if v is not None: meta[k] = v
     meta['state'] = sorted(meta['state'], reverse=True)
