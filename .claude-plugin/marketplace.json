@@ -10,7 +10,7 @@
       "name": "gal-dupico-re",
       "source": "./",
       "description": "Recover secured GAL16V8/GAL20V8 logic with a DuPAL V3 (dupico) and verify the replacement JED.",
-      "version": "1.0.0"
+      "version": "1.0.1"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "gal-dupico-re",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recover the logic of read-protected GAL16V8/GAL20V8 chips with a DuPAL V3 (dupico): probe, single-input-change state exploration, espresso fitting, GALasm generation, fuse-map and programmed-copy verification. Includes a simulated dupico for rehearsal and testing.",
   "author": { "name": "Stephane Bagneris", "url": "https://github.com/sbagneris" },
   "homepage": "https://github.com/sbagneris/gal-dupico-re",
